@@ -6,7 +6,8 @@
   "repository": "commonform/commonform-get-editions",
   "license": "Apache-2.0",
   "dependencies": {
-    "json-parse-errback": "^2.0.1"
+    "json-parse-errback": "^2.0.1",
+    "simple-concat": "^1.0.0"
   },
   "devDependencies": {
     "defence-cli": "^2.0.1",

@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+var concat = require('simple-concat')
 var https = require('https')
 var parse = require('json-parse-errback')
 
@@ -34,17 +35,10 @@ module.exports = function (repository, publisher, project, callback) {
         statusError.statusCode = statusCode
         return callback(statusError)
       }
-      var chunks = []
-      response
-        .on('data', function (chunk) {
-          chunks.push(chunk)
-        })
-        .once('error', function (error) {
-          callback(error)
-        })
-        .once('end', function () {
-          parse(Buffer.concat(chunks), callback)
-        })
+      concat(response, function (error, buffer) {
+        if (error) return callback(error)
+        parse(buffer, callback)
+      })
     })
     .end()
 }
