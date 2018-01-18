@@ -22,8 +22,8 @@ module.exports = function (repository, publisher, project, callback) {
   https.request({
     host: repository,
     path: (
-      '/publishers/' + publisher +
-      '/projects/' + project +
+      '/publishers/' + encodeURIComponent(publisher) +
+      '/projects/' + encodeURIComponent(project) +
       '/publications'
     )
   })
