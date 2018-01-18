@@ -1,6 +1,6 @@
 {
   "name": "commonform-get-editions",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "fetch available editions of a Common Form publication",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "repository": "commonform/commonform-get-editions",
