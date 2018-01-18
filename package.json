@@ -7,5 +7,12 @@
   "license": "Apache-2.0",
   "dependencies": {
     "json-parse-errback": "^2.0.1"
+  },
+  "devDependencies": {
+    "defence-cli": "^2.0.1",
+    "replace-require-self": "^1.1.1"
+  },
+  "scripts": {
+    "test": "defence -i javascript README.md | replace-require-self | node"
   }
 }
