@@ -8,9 +8,9 @@ module.exports = function (repository, publisher, project, callback) {
   https.request({
     host: repository,
     path: (
-      '/publishers/' + encodeURIComponent(publisher) +
-      '/projects/' + encodeURIComponent(project) +
-      '/publications'
+      '/' + encodeURIComponent(publisher) +
+      '/' + encodeURIComponent(project) +
+      '/index.json'
     )
   })
     .once('error', callback)
@@ -25,7 +25,10 @@ module.exports = function (repository, publisher, project, callback) {
       }
       concat(response, function (error, buffer) {
         if (error) return callback(error)
-        parse(buffer, callback)
+        parse(buffer, function (error, parsed) {
+          if (error) return callback(error)
+          callback(null, parsed.editions)
+        })
       })
     })
     .end()

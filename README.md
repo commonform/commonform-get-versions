@@ -3,8 +3,8 @@ var assert = require('assert')
 var getEditions = require('commonform-get-editions')
 
 getEditions(
-  'api.commonform.org', // repository
-  'test', // publisher
+  'commonform.org', // repository
+  'kemitchell', // publisher
   'test', // project
   function (error, editions) {
     assert.ifError(error)
@@ -13,12 +13,12 @@ getEditions(
 )
 
 getEditions(
-  'api.commonform.org',
+  'commonform.org',
   'test',
   'nonexistent',
   function (error, editions) {
-    assert(error)
-    assert.equal(error.statusCode, 404)
+    assert.ifError(error)
+    assert(editions === false)
   }
 )
 ```
