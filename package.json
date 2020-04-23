@@ -4,7 +4,7 @@
   "description": "fetch available editions of a Common Form publication",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "repository": "commonform/commonform-get-editions",
-  "license": "Apache-2.0",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
     "json-parse-errback": "^2.0.1",
     "once": "^1.4.0",
