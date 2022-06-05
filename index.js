@@ -3,16 +3,12 @@ var https = require('https')
 var once = require('once')
 var parse = require('json-parse-errback')
 
-module.exports = function (repository, publisher, project, callback) {
+module.exports = function (base, callback) {
   callback = once(callback)
-  https.request({
-    host: repository,
-    path: (
-      '/' + encodeURIComponent(publisher) +
-      '/' + encodeURIComponent(project) +
-      '/index.json'
-    )
-  })
+  var url = base
+  if (!url.endsWith('/')) url += '/'
+  url += 'index.json'
+  https.request(url)
     .once('error', callback)
     .once('timeout', callback)
     .once('response', function (response) {
