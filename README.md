@@ -1,24 +1,24 @@
 ```javascript
 var assert = require('assert')
-var getEditions = require('commonform-get-editions')
+var getVersions = require('commonform-get-versions')
 
-getEditions(
+getVersions(
   'commonform.org', // repository
   'kemitchell', // publisher
   'test', // project
-  function (error, editions) {
+  function (error, versions) {
     assert.ifError(error)
-    assert.deepStrictEqual(editions, ['1e'])
+    assert.deepStrictEqual(versions, ['1.0.0'])
   }
 )
 
-getEditions(
+getVersions(
   'commonform.org',
   'test',
   'nonexistent',
-  function (error, editions) {
+  function (error, versions) {
     assert.ifError(error)
-    assert(editions === false)
+    assert(versions === false)
   }
 )
 ```

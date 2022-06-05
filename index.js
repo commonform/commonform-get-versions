@@ -27,7 +27,7 @@ module.exports = function (repository, publisher, project, callback) {
         if (error) return callback(error)
         parse(buffer, function (error, parsed) {
           if (error) return callback(error)
-          callback(null, parsed.editions)
+          callback(null, parsed.versions)
         })
       })
     })
